@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+/* betty style doc for function main goes there */
 /**
  * main - Entry point
  *
@@ -15,15 +16,16 @@ n = rand() - RAND_MAX / 2;
 ln = (n % 10);
 if (ln > 5)
 {
-printf("Last digit of %d is greater than 5\n", n);
+printf("Last digit of %d is %d and is greater than 5\n", n, ln);
 }
-else if (ln < 6 && ln != 0)
+else if (ln == 0)
 {
-printf("Last digit of %d is less than 6 and not 0\n", n);
+printf("Last digit of %d ia %d  and is 0\n", n, ln);
 }
 else
 {
-printf("Last digit of %d is 0\n", n);
+printf("Last digit of %d is %d and is  less than 6 and not 0\n", n, ln);
 }
 return (0);
 }
+
