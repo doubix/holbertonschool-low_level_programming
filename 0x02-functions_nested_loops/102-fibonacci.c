@@ -1,28 +1,22 @@
 #include <stdio.h>
 /**
- * main - entry point
- * multiples sum
- * Return: Always 0 (Success)
+ * main - print fibonacci
+ *
+ * Return: always 0
  */
 int main(void)
 {
-long int u0 = 1, u1 = 2, ux;
+long int u0 = 1, u1 = 2;
 int ip = 0;
-for (ip = 1; ip <= 50; ip++)
-{
-if (ip != 50)
+
+printf("%ld, ", u0);
+printf("%ld, ", u1);
+for (ip = 1; ip < 50; ip++)
 {
 printf("%ld, ", u0 + u1);
-}
-else
-{
-printf("%ld", u0 + u1);
-}
-
 u1 = u0 + u1;
 u0 = u1 - u0;
-
 }
-printf("\n");
+printf("%ld\n", u0 + u1);
 return (0);
 }
