@@ -1,16 +1,17 @@
 #include "holberton.h"
 /**
- * main - entry point
- * alternative way for dsiplaying a msg
+ * print_alphabet_x10 - entry point
+ *
  * Return: Always 0 (Success)
  */
 void print_alphabet_x10(void)
 {
-    int i, j;
-    for (i = 0; i < 10; i++)
-    {
-        for (j = 'a'; j <= 'z'; j++)
-            _putchar(j);
-        _putchar('\n');
-    }
+int i, j;
+
+for (i = 0; i < 10; i++)
+{
+for (j = 'a'; j <= 'z'; j++)
+_putchar(j);
+_putchar('\n');
+}
 }

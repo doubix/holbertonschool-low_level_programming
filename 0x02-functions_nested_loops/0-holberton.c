@@ -6,12 +6,12 @@
  */
 int main(void)
 {
-    char ch = "Holberton\n";
-    
-    while (ch)
-    {
-        _putchar(ch++);
-    }
+char ch = "Holberton\n";
 
-    return 0;
+while (ch)
+{
+_putchar(ch++);
+}
+
+return (0);
 }
