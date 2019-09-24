@@ -1,36 +1,48 @@
 #include <stdio.h>
+
 /**
- * main - print fibonacci
- * fibonacci seq
- * Return: always 0
+ * main - prints out the first 100 fibonancci numbers
+ *
+ * Return:0
  */
+
 int main(void)
 {
-unsigned long int u0 = 1, u1 = 2, u01, u02, u11, u12, r;
-int ip = 0;
+long i, j, count, sum, sum_ac, sum_bd;
+long a, b, c, d;
 
-printf("%lu, ", u0);
-printf("%lu, ", u1);
-for (ip = 2; ip < 89; ip++)
+i = 0;
+j = 1;
+for (count = 0; count < 91; count++)
 {
-
-printf("%lu, ", u0 + u1);
-u1 = u0 + u1;
-u0 = u1 - u0;
+sum = i + j;
+i = j;
+j = sum;
+printf("%ld, ", sum);
 }
-u01 = u0 / 1000000000;
-u02 = u0 % 1000000000;
-u11 = u1 / 1000000000;
-u12 = u1 % 1000000000;
-for (ip = 89; ip < 98; ip++)
+a = i / 10000000000;
+b = i % 10000000000;
+c = j / 10000000000;
+d = j % 10000000000;
+for (; count < 98; count++)
 {
-u0 = u01;
-u1 = u02;
-u01 = u11;
-u02 = u12;
-u11 = u0 + u01 + ((u1 + u02) / 1000000000);
-u12 = (u1 + u02) % 1000000000;
-printf("%lu%lu ,", u11, u12);
+sum_ac = a + c;
+sum_bd = b + d;
+if (sum_bd > 10000000000)
+{
+sum_bd %= 10000000000;
+sum_ac++;
+}
+if (count != 97)
+{
+printf("%ld%ld, ", sum_ac, sum_bd);
+a = c;
+b = d;
+c = sum_ac;
+d = sum_bd;
+}
+else
+printf("%ld%ld\n", sum_ac, sum_bd);
 }
 return (0);
 }
