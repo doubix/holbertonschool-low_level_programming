@@ -11,7 +11,7 @@ int i;
 
 if (n == 98)
 {
-printf("%d\n", n);
+printf("98\n", n);
 }
 else if (n < 98)
 {
