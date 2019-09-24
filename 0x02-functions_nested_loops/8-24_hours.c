@@ -2,7 +2,7 @@
 /**
  * jack_bauer - entry point
  *
- * Return: Always 0 (Success)
+ * Return: Void
  */
 void jack_bauer(void)
 {

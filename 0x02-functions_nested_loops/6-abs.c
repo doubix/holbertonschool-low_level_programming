@@ -1,8 +1,8 @@
 #include "holberton.h"
 /**
  * _abs - entry point
- *
- * Return: Always 0 (Success)
+ * @n: number to check
+ * Return: int
  */
 int _abs(int n)
 {
