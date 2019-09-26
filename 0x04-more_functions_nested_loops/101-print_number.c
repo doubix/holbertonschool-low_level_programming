@@ -1,32 +1,35 @@
 #include "holberton.h"
+
 /**
  * print_number - prints int
- * @n: number
- * Return: 0;
+ * @n: int
+ *
+ * Return: void
  */
 void print_number(int n)
 {
-int size = 1000000000;
+int copy, nth, size = 1, ones = n % 10;
 
-if (n < 0)
+n /= 10;
+copy = n;
+if (ones < 0)
 {
-n = -n;
+ones *= -1, copy *= -1, n *= -1;
 _putchar('-');
 }
-
-if (n < 10)
-size = 1;
-else
+if (copy > 0)
 {
-while (n / size == 0)
+while (copy / 10 != 0)
+{
+copy /= 10, size *= 10;
+}
+while (size > 0)
+{
+nth = n / size;
+_putchar('0' + nth);
+n -= nth *size;
 size /= 10;
 }
-
-
-while (size)
-{
-_putchar(n / size + '0');
-n %= size;
-size /= 10;
 }
+_putchar('0' + ones);
 }
