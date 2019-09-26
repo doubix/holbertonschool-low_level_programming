@@ -10,7 +10,10 @@ void print_number(int n)
 int size = 1;
 
 if (n < 0)
+{
 n = -n;
+_putchar('-');
+}
 
 while (size < n)
 size *= 10;
