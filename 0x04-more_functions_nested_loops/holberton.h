@@ -1,5 +1,5 @@
-#if !defined(HOLBERTON)
-#define HOLBERTON
+#ifndef _HOLBERTON_H_
+#define _HOLBERTON_
 
 void _putchar(int);
 int _isupper(int c);
