@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * print_number - print numbers.
+ * print_numbers - print numbers.
  *
  * Return: Always 0.
  */
