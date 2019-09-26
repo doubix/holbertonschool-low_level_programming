@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * print_number - prints int
  * @n: number
@@ -15,9 +14,14 @@ n = -n;
 _putchar('-');
 }
 
-
-while (n % size == 0)
+if (n < 10)
+size = 1;
+else
+{
+while (n / size == 0)
 size /= 10;
+}
+
 
 while (size)
 {
