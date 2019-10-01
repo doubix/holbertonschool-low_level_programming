@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * print_array - prints n elements of array of ints
  * @a: pointer to array
