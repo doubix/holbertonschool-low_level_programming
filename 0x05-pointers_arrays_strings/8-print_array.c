@@ -14,5 +14,5 @@ int i;
 
 for (i = 1; i < n; i++)
 printf("%d, ", a[i - 1]);
-printf("%d\n", a[i - 1]);
+printf("%d\n", a[n - 1]);
 }
