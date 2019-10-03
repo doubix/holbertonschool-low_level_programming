@@ -18,7 +18,6 @@ copy = -n;
 }
 else
 copy = n;
-
 if (copy >= 10)
 {
 print_number(copy / 10);
