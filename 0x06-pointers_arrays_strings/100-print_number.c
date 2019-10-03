@@ -7,22 +7,27 @@
  *
  */
 void print_number(int n)
-
 {
-unsigned int copy;
+int m = 1, num = n, cnt = 0;
 
+if (num < 0)
+num = -n;
+
+while (num > 9)
+{
+num /= 10;
+m *= 10;
+cnt++;
+}
 if (n < 0)
-{
 _putchar('-');
-copy = -n;
-}
-else
-copy = n;
-if (copy >= 10)
+while (m > 0)
 {
-print_number(copy / 10);
-_putchar('0' + (copy % 10));
-}
+num = n / m;
+m /= 10;
+if (n < 0)
+_putchar(num % 10 * -1 + '0');
 else
-_putchar('0' + (copy % 10));
+_putchar(num % 10 + '0');
+}
 }
