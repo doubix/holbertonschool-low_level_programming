@@ -14,7 +14,7 @@ for (i = 0; haystack[i]; i++)
 {
 if (haystack[i] == needle[0])
 {
-while (needle[j] && haystack[i + j] == needle[j])
+while (needle[j] && needle[j] && haystack[i + j] == needle[j])
 j++;
 if (!needle[j])
 return (haystack + i);
