@@ -2,14 +2,14 @@
 
 /**
  * prime_check - checks to see if number is prime
- * @i: factor 
+ * @i: factor
  * @x: to check prime number
  *
  * Return: 1 if prime, 0 if not
  */
 int _prime(int i, int x)
 {
-if (x < 2 || !(x % i) )
+if (x < 2 || !(x % i))
 return (0);
 else if (i > x / 2)
 return (1);
