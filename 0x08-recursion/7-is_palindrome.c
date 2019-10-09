@@ -18,7 +18,7 @@ return (1 + _strlen(str + 1));
  * _palindrome - checks if a string is a palindrome
  * @i: index
  * @l: string length
- *
+ * @p: String to check
  * Return: 1 if palindrome 0 if not
  */
 int _palindrome(int l, int i, char *p)
