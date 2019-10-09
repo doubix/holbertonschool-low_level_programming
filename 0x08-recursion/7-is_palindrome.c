@@ -15,7 +15,7 @@ return (1 + _strlen(str + 1));
 }
 
 /**
- * check_palindrome - checks if a string is a palindrome
+ * _palindrome - checks if a string is a palindrome
  * @i: index
  * @l: string length
  *

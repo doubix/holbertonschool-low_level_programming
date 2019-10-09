@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * sqrt_check - checks for the square root of c
+ * sqrt - checks for the square root of c
  * @i: sqrt
  * @x: number to find sqrt of
  *
