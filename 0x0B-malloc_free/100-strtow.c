@@ -2,24 +2,25 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * words_count - count number of words in a string.
+ * cwords - count number of words in a given string.
  * @str: given string.
+ * @l: lenght of string.
  * Return: number of words.
  */
-int words_count(char *str)
+int cwords(char *str, int l)
 {
-	int i, count = 0;
+int i, count_w = 0;
 
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (str[i] != ' ')
-		{
-			for (; str[i] != ' '; i++)
-				;
-			count++;
-		}
-	}
-	return (count);
+for (i = 0; i < l; i++)
+{
+if (str[i] != ' ')
+{
+for (; str[i] != ' '; i++)
+;
+count_w++;
+}
+}
+return (count_w);
 }
 
 /**
@@ -29,43 +30,44 @@ int words_count(char *str)
  */
 char **strtow(char *str)
 {
-    char **words_array;
-    unsigned int nbr_of_words = 0, count_char = 0, i, word_idx = 0;
-    unsigned int free_idx, j = 0, e = 0;
+char **p;
+int count_w = 0, count_c = 0, i, leng, x = 0, fr, j = 0, z = 0;
 
-    if (str == NULL || *str == '\0')
-        return (NULL);
-
-    nbr_of_words = words_count(str);
-    words_array = (char **)malloc((nbr_of_words + 1) * sizeof(char *));
-    if (words_array == NULL || nbr_of_words == 0)
-    {
-        free(words_array);
-        return (NULL);
-    }
-    for (i = 0; str[i] != '\0'; i++)
-    {
-        if (str[i] != ' ')
-        {
-            e = 1;
-            for (count_char = 0; str[i] != ' ' && str[i] != '\0'; i++)
-                count_char++;
-            words_array[word_idx] = (char *)malloc((count_char + 1) * sizeof(char));
-            if (words_array[word_idx] == NULL)
-            {
-                for (free_idx = 0; free_idx <= word_idx; free_idx++)
-                    free(words_array[free_idx]);
-                free(words_array);
-                return (NULL);
-            }
-            for (j = 0; j < count_char; j++)
-                words_array[word_idx][j] = str[(i - count_char) + j];
-            words_array[word_idx][j] = '\0';
-            word_idx++;
-        }
-    }
-    if (e != 1)
-        return (NULL);
-    words_array[word_idx] = NULL;
-    return (words_array);
+if (str == NULL || *str == '\0')
+{
+return (NULL);
+}
+for (leng = 0; str[leng] != '\0'; leng++)
+;
+count_w = cwords(str, leng);
+p = (char **)malloc((count_w + 1) * sizeof(char *));
+if (p == NULL || count_w == 0)
+{
+free(p);
+return (NULL);
+}
+for (i = 0; i < leng; i++)
+{
+if (str[i] != ' ')
+{z = 1;
+for (count_c = 0; str[i] != ' ' && str[i] != '\0'; i++)
+count_c++;
+p[x] = (char *)malloc((count_c + 1) * sizeof(char));
+if (p[x] == NULL)
+{
+for (fr = 0; fr <= x; fr++)
+free(p[fr]);
+free(p);
+return (NULL);
+}
+for (j = 0; j < count_c; j++)
+p[x][j] = str[(i - count_c) +j];
+p[x][j] = '\0';
+x++;
+}
+}
+if (z != 1)
+return (NULL);
+p[x] = NULL;
+return (p);
 }
