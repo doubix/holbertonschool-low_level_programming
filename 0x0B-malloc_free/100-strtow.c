@@ -10,7 +10,7 @@ int words_count(char *str)
 {
 unsigned int i, cout = 0;
 
-for (i = 0; str[i]; i++)
+for (i = 0; str[i] != '\0'; i++)
 {
 if (str[i] == ' ')
 {
@@ -45,7 +45,7 @@ if (words_array == NULL || nbr_of_words == 0)
 free(words_array);
 return (NULL);
 }
-for (i = 0; str[i]; i++)
+for (i = 0; str[i] != '\0'; i++)
 {
 if (str[i] != ' ')
 {
