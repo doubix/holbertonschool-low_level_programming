@@ -7,7 +7,7 @@
  * @s2: second string
  * @n: number of bytes of s2
  *
- * Return: char pointer 
+ * Return: char pointer
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
