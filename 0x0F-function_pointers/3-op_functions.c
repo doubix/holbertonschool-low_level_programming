@@ -15,11 +15,11 @@ return (a + b);
 }
 
 /**
- * op_sub - subtracts a and b
+ * op_sub - subtracts b from a
  * @a: first number
  * @b: second number
  *
- * Return: sum of a and b
+ * Return: difference of a and b
  */
 int op_sub(int a, int b)
 {
@@ -39,19 +39,24 @@ return (a * b);
 }
 
 /**
- * op_div - adds a and b
+ * op_div - divides a by b
  * @a: first number
  * @b: second number
  *
- * Return: divition of a by b
+ * Return: integer division of a by b
  */
 int op_div(int a, int b)
 {
+if (b == 0)
+{
+printf("Error\n");
+exit(100);
+}
 return (a / b);
 }
 
 /**
- * op_mod - adds a and b
+ * op_mod - find the remainder of the division of a by b
  * @a: first number
  * @b: second number
  *
@@ -59,5 +64,10 @@ return (a / b);
  */
 int op_mod(int a, int b)
 {
+if (b == 0)
+{
+printf("Error\n");
+exit(100);
+}
 return (a % b);
 }
