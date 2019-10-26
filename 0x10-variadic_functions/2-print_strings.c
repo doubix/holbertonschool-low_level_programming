@@ -16,12 +16,14 @@ va_list args;
 char *str;
 
 va_start(args, n);
-for (i = 0; i < n - 1; i++)
+for (i = 0; i < n; i++)
 {
 str = va_arg(args, char *);
-printf("%s%s", (str) ? str : "(nil)", (separator) ? separator : "");
+printf("%s", str);
+if (i < n - 1 && separator)
+printf("%s", separator);
 }
-str = va_arg(args, char *);
-printf("%s\n", (str) ? str : "(nil)");
+
+printf("\n");
 va_end(args);
 }
