@@ -15,9 +15,12 @@ va_list args;
 unsigned int i;
 
 va_start(args, n);
-for (i = 0; i < n - 1; i++)
-printf("%d%s", va_arg(args, int), (separator) ? separator : "");
+for (i = 0; i < n; i++)
+{
+printf("%d", va_arg(args, int));
+if (i < n - 1 && separator)
+printf("%s", separator);
+}
 
-printf("%d\n", va_arg(args, int));
 va_end(args);
 }
