@@ -9,7 +9,9 @@
  * Return: void
  */
 void print_char(va_list c);
-
+{
+printf("%c", va_arg(c, int))
+}
 /**
  * print_str - prints a string
  * @s: string to print
@@ -17,23 +19,33 @@ void print_char(va_list c);
  * Return: void
  */
 void print_str(va_list s);
+{
+char *str = va_arg(s, char *)
 
+if (str == NULL)
+str = "(nil)";
+printf("%s", str);
+}
 /**
  * print_int - prints an int
  * @i: int to print
  *
  * Return: void
  */
-void print_int(va_list i);
-
+void print_int(va_list i)
+{
+printf("%d", va_arg(i, int));
+}
 /**
  * print_float - prints a float
  * @f: float to print
  *
  * Return: void
  */
-void print_float(va_list f);
-
+void print_float(va_list f)
+{
+printf("%f", va_arg(f, double));
+}
 /**
  * print_all - prints anything
  * @format: list of argument types passed to the function
@@ -70,28 +82,4 @@ i++;
 
 va_end(args);
 printf("\n");
-}
-
-void print_char(va_list c)
-{
-printf("%c", va_arg(c, int));
-}
-
-void print_str(va_list s)
-{
-char *str = va_arg(s, char *);
-
-if (str == NULL)
-str = "(nil)";
-printf("%s", str);
-}
-
-void print_int(va_list i)
-{
-printf("%d", va_arg(i, int));
-}
-
-void print_float(va_list f)
-{
-printf("%f", va_arg(f, double));
 }
