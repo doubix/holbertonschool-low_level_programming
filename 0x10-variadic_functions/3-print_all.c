@@ -65,25 +65,30 @@ print_f format_arr[] = {
 {"s", print_str},
 {"i", print_int},
 {"f", print_float},
-{NULL, NULL}};
+{NULL, NULL}
+};
 va_list args;
-int i = 0, j = 0;
-va_start(args, format);
+unsigned int i = 0, j;
+char *separator = "";
 
+va_start(args, format);
+i = 0;
 while (format && format[i])
 {
 j = 0;
-while (format_arr[j].c && *(format_arr[j].c) != format[i])
-j++;
-if (format_arr[j].c)
+while (format_arr[j].c != NULL)
 {
+if (*(format_arr[j].c) == format[i])
+{
+printf("%s", separator);
 format_arr[j].func(args);
-if (format[i + 1])
-printf(", ");
+separator = ", ";
+break;
+}
+j++;
 }
 i++;
 }
-
 va_end(args);
 printf("\n");
 }
