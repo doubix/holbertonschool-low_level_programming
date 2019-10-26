@@ -60,30 +60,30 @@ void print_float(va_list f)
  */
 void print_all(const char *const format, ...)
 {
-	print_f format_arr[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"i", print_int},
-		{"f", print_float},
-		{NULL, NULL}};
-	va_list args;
-	int i = 0, j = 0;
-	va_start(args, format);
+print_f format_arr[] = {
+{"c", print_char},
+{"s", print_str},
+{"i", print_int},
+{"f", print_float},
+{NULL, NULL}};
+va_list args;
+int i = 0, j = 0;
+va_start(args, format);
 
-	while (format && format[i])
-	{
-		j = 0;
-		while (format_arr[j].c && *(format_arr[j].c) != format[i])
-			j++;
-		if (format_arr[j].c)
-		{
-			format_arr[j].func(args);
-			if (format[i + 1])
-				printf(", ");
-		}
-		i++;
-	}
+while (format && format[i])
+{
+j = 0;
+while (format_arr[j].c && *(format_arr[j].c) != format[i])
+j++;
+if (format_arr[j].c)
+{
+format_arr[j].func(args);
+if (format[i + 1])
+printf(", ");
+}
+i++;
+}
 
-	va_end(args);
-	printf("\n");
+va_end(args);
+printf("\n");
 }
