@@ -3,10 +3,15 @@
 
 #include <stdarg.h>
 
+/**
+ * struct print - type with corresponding print function
+ * @c: print type
+ * @func: print function
+ */
 typedef struct print
 {
-    char *c;
-    void (*func)(va_list);
+char *c;
+void (*func)(va_list);
 } print_f;
 
 
