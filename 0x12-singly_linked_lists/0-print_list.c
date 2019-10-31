@@ -11,7 +11,7 @@ size_t i;
 
 while (h)
 {
-printf("[%u] %s\n", h->len, (h->str) ? h->str : "(nil)");
+printf("[%u] %s\n", h->len, (h->str) ? h->str : "[0] (nil)");
 h = h->next;
 i++;
 }
