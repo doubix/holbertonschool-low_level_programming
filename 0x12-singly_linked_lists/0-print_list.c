@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+
 /**
  * print_list - print all the elements of a list
  * @h: head pointer to list
@@ -7,16 +9,14 @@
 
 size_t print_list(const list_t *h)
 {
+const list_t *tmp;
 unsigned int i;
 
-while (h)
+tmp = h;
+for (i = 0; tmp; i++)
 {
-if (h->str == NULL)
-printf("[%u] %s\n", 0, "(nil)");
-else
-printf("[%u] %s\n", h->len, h->str);
-h = h->next;
-i++;
+printf("[%u] %s\n", tmp->len, tmp->str);
+tmp = tmp->next;
 }
 return (i);
 }
