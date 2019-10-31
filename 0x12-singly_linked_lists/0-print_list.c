@@ -15,7 +15,11 @@ unsigned int i;
 tmp = h;
 for (i = 0; tmp; i++)
 {
+if (tmp->str)   
 printf("[%u] %s\n", tmp->len, tmp->str);
+else
+printf("[%u] %s\n", 0, "(nil)");
+
 tmp = tmp->next;
 }
 return (i);
