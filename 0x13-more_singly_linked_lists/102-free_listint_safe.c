@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * realloc_mem - reallocates memory for an array of pointers
+ * _realloc_mem - reallocates memory for an array of pointers
  * to the nodes in a linked list
  * @list: the old list
  * @size: size of the new list
