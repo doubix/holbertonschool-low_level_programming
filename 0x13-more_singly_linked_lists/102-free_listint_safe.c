@@ -11,7 +11,7 @@
  *
  * Return: pointer to the new list
  */
-listint_t **realloc_mem(listint_t **list, size_t size, listint_t *new_elm)
+listint_t **_realloc_mem(listint_t **list, size_t size, listint_t *new_elm)
 {
 listint_t **new_list;
 size_t i;
@@ -55,7 +55,7 @@ return (count);
 }
 }
 count++;
-list = realloc_mem(list, count, *head);
+list = _realloc_mem(list, count, *head);
 next = (*head)->next;
 free(*head);
 *head = next;
