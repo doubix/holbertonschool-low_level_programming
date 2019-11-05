@@ -3,15 +3,15 @@
 #include <stdio.h>
 
 /**
- * _realloc_mem - reallocates memory for an array of pointers
+ * _rm - reallocates memory for an array of pointers
  * to the nodes in a linked list
  * @list: the old list
  * @size: size of the new list
- * @new: new node
+ * @ne: new node
  *
  * Return: pointer to the new list
  */
-const listint_t **_realloc_mem(const listint_t **list, size_t size, const listint_t *new_elm)
+const listint_t **_rm(const listint_t **list, size_t size, const listint_t *ne)
 {
 const listint_t **new_list;
 size_t i;
@@ -24,7 +24,7 @@ exit(98);
 }
 for (i = 0; i < size - 1; i++)
 new_list[i] = list[i];
-new_list[i] = new_elm;
+new_list[i] = ne;
 free(list);
 return (new_list);
 }
@@ -52,7 +52,7 @@ return (count);
 }
 }
 count++;
-list = _realloc_mem(list, count, head);
+list = _rm(list, count, head);
 printf("[%p] %d\n", (void *)head, head->n);
 head = head->next;
 }

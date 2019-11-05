@@ -7,7 +7,7 @@
  * to the nodes in a linked list
  * @list: the old list
  * @size: size of the new list
- * @new: new node
+ * @new_elm: new node
  *
  * Return: pointer to the new list
  */
