@@ -109,7 +109,7 @@ printf("UNIX - Solaris\n");
 else
 printf("<unknown: %x>\n", os);
 
-printf("  ABI Version:                       %d\n", __buf[8]);
+
 }
 
 /**
@@ -185,6 +185,7 @@ printf("  Class:                             ELF64\n");
 pdata(__buf);
 pver(__buf);
 posabi(__buf);
+printf("  ABI Version:                       %d\n", __buf[8]);
 ptype(__buf);
 paddr(__buf);
 }
