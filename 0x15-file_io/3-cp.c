@@ -84,25 +84,25 @@ dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
 f_from = open(argv[1], O_RDONLY);
-check98((ssize_t)f_from, argv[1], -1, -1);
+err_98((ssize_t)f_from, argv[1], -1, -1);
 mode =  S_IWUSR | S_IRUSR | S_IWGRP |  S_IRGRP |  S_IROTH;
 f_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
-check99((ssize_t)f_to, argv[2], f_from, -1);
+err_99((ssize_t)f_to, argv[2], f_from, -1);
 length_r = 1024;
 
 while (length_r == 1024)
 {
 length_r = read(f_from, f_buffer, 1024);
-check98(length_r, argv[1], f_from, f_to);
+err_98(length_r, argv[1], f_from, f_to);
 length_w = write(f_to, f_buffer, length_r);
 if (length_w != length_r)
 length_w = -1;
-check99(length_w, argv[2], f_from, f_to);
+err_99(length_w, argv[2], f_from, f_to);
 }
 
 close_to = close(f_to);
 close_from = close(f_from);
-check100(close_to, f_to);
-check100(close_from, f_from);
+err_100(close_to, f_to);
+err_100(close_from, f_from);
 return (0);
 }
