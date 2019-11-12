@@ -100,40 +100,16 @@ void posabi(char *__buf)
 char os = __buf[7];
 
 printf("  OS/ABI:                            ");
-switch (os)
-{
-case ELFOSABI_NONE:
+if (os == 0)
 printf("UNIX - System V\n");
-break;
-case ELFOSABI_HPUX:
-printf("UNIX - HP-UX\n");
-break;
-case ELFOSABI_NETBSD:
+else if (os == 2)
 printf("UNIX - NetBSD\n");
-break;
-case ELFOSABI_LINUX:
-printf("UNIX - Linux\n");
-break;
-case ELFOSABI_SOLARIS:
+else if (os == 6)
 printf("UNIX - Solaris\n");
-break;
-case ELFOSABI_IRIX:
-printf("UNIX - IRIX\n");
-break;
-case ELFOSABI_FREEBSD:
-printf("UNIX - FreeBSD\n");
-break;
-case ELFOSABI_TRU64:
-printf("UNIX - TRU64\n");
-break;
-case ELFOSABI_ARM:
-printf("ARM\n");
-break;
-default:
+else
 printf("<unknown: %x>\n", os);
 
 printf("  ABI Version:                       %d\n", __buf[8]);
-}
 }
 
 /**
@@ -164,15 +140,10 @@ char dt = __buf[5];
 printf("  Data:                              2's complement");
 if (dt == 1)
 printf(", little endian\n");
-else if (dt == 2)
-printf(", big endian\n");
-else
-{
-printf("  Data:                              ");
-printf("<unknown: %x>\n", dt);
-}
-}
 
+if (dt == 2)
+printf(", big endian\n");
+}
 /**
  * pmagic - prints magic info.
  * @__buf: buffer.
@@ -207,13 +178,10 @@ pmagic(__buf);
 
 if (sys == '1')
 printf("  Class:                             ELF32\n");
-else if (sys == '2')
+
+if (sys == '2')
 printf("  Class:                             ELF64\n");
-else
-{
-printf("  Class:                             ");
-printf("<unknown: %x>\n", sys);
-}
+
 pdata(__buf);
 pver(__buf);
 posabi(__buf);
