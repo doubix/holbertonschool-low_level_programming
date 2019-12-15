@@ -27,7 +27,7 @@ for (i = 0; curr; i++)
 if (i == index)
 {
 curr->prev->next = curr->next;
-if (!curr->next)
+if (curr->next != NULL)
 curr->next->prev = curr->prev;
 free(curr);
 return (1);
