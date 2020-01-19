@@ -4,22 +4,24 @@
  * hash_table_get - retrieves a value associated with a key
  * @ht: hash table
  * @key: key to retrieve value for
- * Return: value or NULL if no value found
+ * Return: the value, otherwise NULL
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-hash_node_t *tmp;
-unsigned long int i;
+    hash_node_t *tmp;
+    unsigned long int i;
 
-i = key_index((unsigned char *)key, ht->size);
-tmp = ht->array[i];
+    if (!ht)
+        return (NULL);
+    if (!key || strcmp(key, "") == 0)
+        return (NULL);
+    i = key_index((unsigned char *)key, ht->size);
+    tmp = ht->array[i];
 
-for (; tmp; i++)
-{
-if (strcmp(key, tmp->key) == 0)
-return (ht->array[i]->value);
-tmp = tmp->next;
-i++;
-}
-return (NULL);
+    for (; tmp; tmp = tmp->next)
+    {
+        if (strcmp(key, tmp->key) == 0)
+            return (tmp->value);
+    }
+    return (NULL);
 }
