@@ -21,9 +21,9 @@ tmp = ht->array[i];
 while (tmp)
 {
 printf("'%s': '%s'", tmp->key, tmp->value);
-tmp = tmp->next;
-if (tmp)
+if (tmp->next)
 printf(", ");
+tmp = tmp->next;
 }
 }
 if (ht->array[i + 1])
