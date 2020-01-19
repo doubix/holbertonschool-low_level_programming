@@ -43,6 +43,5 @@ else
 {
 ht->array[i] = new;
 }
-
 return (1);
 }
