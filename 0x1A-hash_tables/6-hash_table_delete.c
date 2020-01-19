@@ -11,7 +11,7 @@ hash_node_t *tmp;
 
 if (ht)
 {
-for  (i = 0;i < ht->size; i++)
+for  (i = 0; i < ht->size; i++)
 {
 if (ht->array[i])
 {
