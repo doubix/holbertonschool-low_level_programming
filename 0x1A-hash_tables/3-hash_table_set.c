@@ -9,24 +9,24 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-unsigned int long i;
-hash_node_t *new;
+    unsigned int long i;
+    hash_node_t *new;
 
-i = key_index((unsigned char *)key, ht->size);
+    i = key_index((unsigned char *)key, ht->size);
 
-new = malloc(sizeof(hash_node_t));
-if (new == NULL)
-return (0);
+    new = malloc(sizeof(hash_node_t *));
+    if (new == NULL)
+        return (0);
 
-new->value = (char *)value;
-new->key = (char *)key;
-new->next = NULL;
-if (!ht->array[i])
-ht->array[i] = new;
-else
-{
-new->next = ht->array[i];
-ht->array[i] = new;
-}
-return (1);
+    new->value = (char *)value;
+    new->key = (char *)key;
+    new->next = NULL;
+    if (!ht->array[i])
+        ht->array[i] = new;
+    else
+    {
+        new->next = ht->array[i];
+        ht->array[i] = new;
+    }
+    return (1);
 }
