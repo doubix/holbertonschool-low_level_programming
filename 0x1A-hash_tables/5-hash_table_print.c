@@ -12,7 +12,7 @@ hash_node_t *tmp;
 
 if (ht)
 {
-printf('{');
+printf("{");
 while (i < ht->size)
 {
 if (ht->array[i])
