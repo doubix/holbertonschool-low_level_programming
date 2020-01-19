@@ -26,7 +26,7 @@ new->key = strdup(key);
 new->next = NULL;
 if (ht->array[i])
 {
-curr =ht->array[i];
+curr = ht->array[i];
 while (curr)
 {
 if (!strcmp(curr->key, key))
