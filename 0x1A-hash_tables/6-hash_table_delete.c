@@ -11,7 +11,7 @@ hash_node_t *tmp;
 
 if (ht)
 {
-for  (i = 0; i < ht->size; i++)
+for (i = 0; i < ht->size; i++)
 {
 if (ht->array[i])
 {
@@ -19,6 +19,8 @@ tmp = ht->array[i];
 while (tmp)
 {
 ht->array[i] = ht->array[i]->next;
+free(tmp->key);
+free(tmp->value);
 free(tmp);
 tmp = ht->array[i];
 }
