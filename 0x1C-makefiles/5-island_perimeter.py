@@ -8,7 +8,7 @@ def island_perimeter(grid):
     """returns the perimeter of the island described in grid
 
     Arguments:
-        grid (loist of list)
+        grid (list of list)
     Retruns:
         (int)
     """
