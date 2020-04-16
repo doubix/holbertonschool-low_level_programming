@@ -1,4 +1,4 @@
-#include "search.h"
+#include "search_algos.h"
 
 /**
   * jump_search - Searches using jump search.

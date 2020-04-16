@@ -1,4 +1,4 @@
-#include "search.h"
+#include "search_algos.h"
 
 /**
   * advanced_binary_recursive - Searches recursively
