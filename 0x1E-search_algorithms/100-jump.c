@@ -8,28 +8,33 @@
   *
   * Return: NULL, -1, the first index where the value is located.
   */
-int jump_search(int *array, size_t size, int value)
+listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t i = 0, jump = 0, step = sqrt(size);
+	size_t step, step_size;
+	listint_t *node, *jump;
 
-	if (!array || size == 0)
-		return (-1);
+	if (!list || size == 0)
+		return (NULL);
 
-	for (; jump < size && array[jump] < value;)
+	step = 0;
+	step_size = sqrt(size);
+	for (node = jump = list; jump->index + 1 < size && jump->n < value;)
 	{
-		printf("Value checked array[%ld] = [%d]\n", jump, array[jump]);
-		i = jump;
-		jump += step;
+		node = jump;
+		for (step += step_size; jump->index < step; jump = jump->next)
+		{
+			if (jump->index + 1 == size)
+				break;
+		}
+		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
 	}
 
-	printf("Value found between indexes [%ld] and [%ld]\n", i, jump);
-    if (jump >= size -1) {
-        jump = size -1;
-	for (; i < jump && array[i] < value; i++)
-		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-	printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+	printf("Value found between indexes [%ld] and [%ld]\n",
+			node->index, jump->index);
 
-    if (array[i] == value)
-        return (int)i;
-	return (-1);
-}
+	for (; node->index < jump->index && node->n < value; node = node->next)
+		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+
+	return (node->n == value ? node : NULL);
+}}
